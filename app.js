@@ -51,6 +51,8 @@ const options = {
 const app = express()
 app.use(morgan('combined'))
 
+app.get('/healthz', (req, res) => res.sendStatus(200))
+
 configOIDC(app, options)
 configOIDCv2(app, options)
 configSGID(app, options)
